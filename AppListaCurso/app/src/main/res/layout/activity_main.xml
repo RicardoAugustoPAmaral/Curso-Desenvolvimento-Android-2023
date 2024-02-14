@@ -8,10 +8,10 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txtTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Aplicativo Lista Vip Curso Android"
+        android:text="@string/txt_titulo"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,105 +22,101 @@
         app:layout_constraintVertical_bias="0.066" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/editPrimeiroNome"
+        android:layout_height="50dp"
         android:layout_width="match_parent"
         android:layout_marginTop="48dp"
         android:height="48dp"
         android:ems="10"
-        android:hint="Primeiro nome"
+        android:hint="@string/txt_hint_edit_primeiro_nome"
         android:inputType="text"
-        android:text="Nome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/txtTitulo"
         app:layout_marginBaseline="16dp" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/editSobrenome"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="136dp"
         android:height="48dp"
         android:ems="10"
-        android:hint="Sobrenome"
+        android:hint="@string/txt_hint_edit_sobrenome"
         android:inputType="text"
-        android:text="Sobrenome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/txtTitulo"
         app:layout_marginBaseline="16dp" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/editCursDesejado"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="208dp"
         android:height="48dp"
         android:ems="10"
-        android:hint="Nome do Curso desejado"
+        android:hint="@string/txt_hint_edit_nome_do_curso_desejado"
         android:inputType="text"
-        android:text="Nome do curso desejado"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/txtTitulo"
         app:layout_marginBaseline="16dp" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/editTelefoneContato"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="292dp"
         android:height="48dp"
         android:ems="10"
-        android:hint="Telefone de contato"
+        android:hint="@string/txt_hint_edit_telefone_de_contato"
         android:inputType="text"
-        android:text="Telefone de contato"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/txtTitulo"
         app:layout_marginBaseline="16dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnLimpar"
         android:layout_width="123dp"
         android:layout_height="58dp"
         android:layout_marginStart="32dp"
         android:layout_marginBottom="48dp"
-        android:hint="Limpar"
-        android:text="Limpar"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        android:text="@string/txt_button_limpar"
+        app:layout_constraintBottom_toTopOf="@+id/btnFinalizar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/txtTitulo"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnSalvar"
         android:layout_width="123dp"
         android:layout_height="58dp"
         android:layout_marginBottom="48dp"
-        android:text="Salvar"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        android:text="@string/txt_button_salvar"
+        app:layout_constraintBottom_toTopOf="@+id/btnFinalizar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.863"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintHorizontal_bias="0.653"
+        app:layout_constraintStart_toEndOf="@+id/btnLimpar"
+        app:layout_constraintTop_toBottomOf="@+id/txtTitulo"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnFinalizar"
         android:layout_width="351dp"
         android:layout_height="68dp"
         android:layout_marginBottom="64dp"
-        android:text="Finalizar"
+        android:text="@string/txt_button_finalizar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/txtTitulo"
         app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
