@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         outrapessoa.setCursoDesejado("PYTHON");
         outrapessoa.setTelefoneContato("99988899");
 
-        dadosPessoa = "Primeiro nome: ";
+      /*  dadosPessoa = "Primeiro nome: ";
         dadosPessoa += pessoa.getPrimeiroNome();
         dadosPessoa += " Sobrenome: ";
         dadosPessoa += pessoa.getSegundoNome();
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         dadosOutrapessoa += " Curso Desejado: ";
         dadosOutrapessoa +=outrapessoa.getCursoDesejado();
         dadosOutrapessoa += " Telefone de Contato: ";
-        dadosOutrapessoa +=outrapessoa.getTelefoneContato();
+        dadosOutrapessoa +=outrapessoa.getTelefoneContato();*/
 
     }
 }
