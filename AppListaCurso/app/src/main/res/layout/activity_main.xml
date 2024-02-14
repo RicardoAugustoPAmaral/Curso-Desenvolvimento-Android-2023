@@ -23,9 +23,9 @@
 
     <EditText
         android:id="@+id/editPrimeiroNome"
-        android:layout_height="50dp"
         android:layout_width="match_parent"
-        android:layout_marginTop="48dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
         android:height="48dp"
         android:ems="10"
         android:hint="@string/txt_hint_edit_primeiro_nome"
@@ -40,7 +40,7 @@
         android:id="@+id/editSobrenome"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginTop="96dp"
         android:height="48dp"
         android:ems="10"
         android:hint="@string/txt_hint_edit_sobrenome"
@@ -55,7 +55,7 @@
         android:id="@+id/editCursDesejado"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="208dp"
+        android:layout_marginTop="156dp"
         android:height="48dp"
         android:ems="10"
         android:hint="@string/txt_hint_edit_nome_do_curso_desejado"
@@ -70,7 +70,7 @@
         android:id="@+id/editTelefoneContato"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="292dp"
+        android:layout_marginTop="224dp"
         android:height="48dp"
         android:ems="10"
         android:hint="@string/txt_hint_edit_telefone_de_contato"
@@ -90,7 +90,7 @@
         android:text="@string/txt_button_limpar"
         app:layout_constraintBottom_toTopOf="@+id/btnFinalizar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTitulo"
+        app:layout_constraintTop_toBottomOf="@+id/editTelefoneContato"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
@@ -108,8 +108,8 @@
 
     <Button
         android:id="@+id/btnFinalizar"
-        android:layout_width="351dp"
-        android:layout_height="68dp"
+        android:layout_width="338dp"
+        android:layout_height="73dp"
         android:layout_marginBottom="64dp"
         android:text="@string/txt_button_finalizar"
         app:layout_constraintBottom_toBottomOf="parent"
