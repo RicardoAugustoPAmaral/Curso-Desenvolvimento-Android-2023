@@ -17,6 +17,7 @@ import com.example.applistacurso.model.Pessoa;
 public class MainActivity extends AppCompatActivity {
 
     SharedPreferences preferences;
+    SharedPreferences.Editor listaVip;
     public static final String NOME_PREFEREMCES = "pref_listavip";
 
     PessoaController controller;
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         preferences = getSharedPreferences(NOME_PREFEREMCES,0);
-        SharedPreferences.Editor listaVip = preferences.edit();
+        listaVip = preferences.edit();
 
 
         controller = new PessoaController();
@@ -91,6 +92,8 @@ public class MainActivity extends AppCompatActivity {
                 editSobrenome.setText("");
                 editCursDesejado.setText("");
                 editTelefoneContato.setText("");
+                listaVip.clear();
+                listaVip.apply();
 
             }
         });
