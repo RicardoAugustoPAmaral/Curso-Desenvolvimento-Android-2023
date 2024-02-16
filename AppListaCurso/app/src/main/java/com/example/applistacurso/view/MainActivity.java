@@ -11,8 +11,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.applistacurso.R;
+import com.example.applistacurso.controller.CursoController;
 import com.example.applistacurso.controller.PessoaController;
+import com.example.applistacurso.model.Curso;
 import com.example.applistacurso.model.Pessoa;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,8 +25,11 @@ public class MainActivity extends AppCompatActivity {
     public static final String NOME_PREFEREMCES = "pref_listavip";
 */
     PessoaController controller;
+    CursoController cursoController;
 
     Pessoa pessoa;
+
+    List<Curso> listaDeCursos;
     Pessoa outrapessoa;
 
     String dadosPessoa;
@@ -48,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
 
         controller = new PessoaController(MainActivity.this);
         controller.toString();
+
+        cursoController = new CursoController();
+        listaDeCursos =  cursoController.getListaDeCursos();
 
         pessoa = new Pessoa();
 
