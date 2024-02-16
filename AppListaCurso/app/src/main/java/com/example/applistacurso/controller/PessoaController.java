@@ -53,6 +53,7 @@ public class PessoaController {
     }
     public void limpar(){
 
+
                 listaVip.clear();
                 listaVip.apply();
     }
