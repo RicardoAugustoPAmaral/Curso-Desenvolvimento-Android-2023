@@ -2,34 +2,30 @@ package com.example.applistacurso.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.applistacurso.R;
 import com.example.applistacurso.controller.CursoController;
 import com.example.applistacurso.controller.PessoaController;
-import com.example.applistacurso.model.Curso;
 import com.example.applistacurso.model.Pessoa;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-   /* SharedPreferences preferences;
-    SharedPreferences.Editor listaVip;
-    public static final String NOME_PREFEREMCES = "pref_listavip";
-*/
     PessoaController controller;
     CursoController cursoController;
 
     Pessoa pessoa;
 
-    List<Curso> listaDeCursos;
+    List<String> nomesDosCursos;
     Pessoa outrapessoa;
 
     String dadosPessoa;
@@ -44,59 +40,45 @@ public class MainActivity extends AppCompatActivity {
     Button btnSalvar;
     Button btnFinalizar;
 
+    Spinner spinner;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-      /*  preferences = getSharedPreferences(NOME_PREFEREMCES,0);
-        listaVip = preferences.edit();
-*/
-
         controller = new PessoaController(MainActivity.this);
         controller.toString();
 
-        cursoController = new CursoController();
-        listaDeCursos =  cursoController.getListaDeCursos();
+
 
         pessoa = new Pessoa();
 
         controller.buscar(pessoa);
 
-       /* pessoa.setPrimeiroNome(preferences.getString("primeiroNome",""));
-        pessoa.setSegundoNome(preferences.getString("sobreNome",""));
-        pessoa.setCursoDesejado(preferences.getString("curso",""));
-        pessoa.setTelefoneContato(preferences.getString("telefone",""));
-*/
-      /*  pessoa.setPrimeiroNome("Ricardo");
-        pessoa.setSegundoNome("Amaral");
-        pessoa.setCursoDesejado("JAVA");
-        pessoa.setTelefoneContato("999999999");*/
-
-       /* outrapessoa = new Pessoa();
-        outrapessoa.setPrimeiroNome("Augusto");
-        outrapessoa.setSegundoNome("Paredes");
-        outrapessoa.setCursoDesejado("PYTHON");
-        outrapessoa.setTelefoneContato("99988899");*/
 
         editPrimeiroNome = findViewById(R.id.editPrimeiroNome);
         editSobrenome = findViewById(R.id.editSobrenome);
         editCursDesejado = findViewById(R.id.editCursDesejado);
         editTelefoneContato = findViewById(R.id.editTelefoneContato);
 
+
+
         btnLimpar = findViewById(R.id.btnLimpar);
         btnSalvar = findViewById(R.id.btnSalvar);
         btnFinalizar = findViewById(R.id.btnFinalizar);
 
-        editPrimeiroNome.setText(pessoa.getPrimeiroNome());
-        editSobrenome.setText(pessoa.getSegundoNome());
-        editCursDesejado.setText(pessoa.getCursoDesejado());
-        editTelefoneContato.setText(pessoa.getTelefoneContato());
+        cursoController = new CursoController();
+        nomesDosCursos = cursoController.dadosParaSpinner();
+        spinner = findViewById(R.id.spinner);
 
-        /*editPrimeiroNome.setText(pessoa.getPrimeiroNome());
-        editSobrenome.setText(pessoa.getSegundoNome());
-        editCursDesejado.setText(pessoa.getCursoDesejado());
-        editTelefoneContato.setText(pessoa.getTelefoneContato());*/
+        //Adapter
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, cursoController.dadosParaSpinner());
+        //Layout
+        adapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+        //injetar o Adapter ao Spinner - A lista será gerada
+        spinner.setAdapter(adapter);
 
         btnLimpar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,10 +89,6 @@ public class MainActivity extends AppCompatActivity {
                 editTelefoneContato.setText("");
 
                 controller.limpar();
-
-             /*   listaVip.clear();
-                listaVip.apply();
-*/
             }
         });
 
@@ -118,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(MainActivity.this,"Volte sempre!",Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Volte sempre!", Toast.LENGTH_LONG).show();
                 finish();
             }
         });
@@ -132,38 +110,15 @@ public class MainActivity extends AppCompatActivity {
                 pessoa.setCursoDesejado(editCursDesejado.getText().toString());
                 pessoa.setTelefoneContato(editTelefoneContato.getText().toString());
 
-                Toast.makeText(MainActivity.this,"Salvo "+pessoa.toString(),Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Salvo " + pessoa.toString(), Toast.LENGTH_LONG).show();
 
-              /*  listaVip.putString("primeiroNome",pessoa.getPrimeiroNome());
-                listaVip.putString("sobreNome",pessoa.getSegundoNome());
-                listaVip.putString("curso",pessoa.getCursoDesejado());
-                listaVip.putString("telefone",pessoa.getTelefoneContato());
-                listaVip.apply();*/
 
                 controller.salvar(pessoa);
             }
         });
 
-      /*  dadosPessoa = "Primeiro nome: ";
-        dadosPessoa += pessoa.getPrimeiroNome();
-        dadosPessoa += " Sobrenome: ";
-        dadosPessoa += pessoa.getSegundoNome();
-        dadosPessoa += " Curso Desejado: ";
-        dadosPessoa +=pessoa.getCursoDesejado();
-        dadosPessoa += " Telefone de Contato: ";
-        dadosPessoa +=pessoa.getTelefoneContato();
 
-        dadosOutrapessoa = "Primeiro nome: ";
-        dadosOutrapessoa += outrapessoa.getPrimeiroNome();
-        dadosOutrapessoa += " Sobrenome: ";
-        dadosOutrapessoa += outrapessoa.getSegundoNome();
-        dadosOutrapessoa += " Curso Desejado: ";
-        dadosOutrapessoa +=outrapessoa.getCursoDesejado();
-        dadosOutrapessoa += " Telefone de Contato: ";
-        dadosOutrapessoa +=outrapessoa.getTelefoneContato();*/
-
-        Log.i("POOAndrid",pessoa.toString());
-
+        Log.i("POOAndrid", pessoa.toString());
 
 
     }

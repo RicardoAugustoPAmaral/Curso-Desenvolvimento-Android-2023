@@ -24,7 +24,7 @@ public class CursoController {
         return listCursos;
     }
 
-    public ArrayList<String> dadoParaSpinner() {
+    public ArrayList<String> dadosParaSpinner() {
 
         ArrayList<String> dados = new ArrayList<>();
 
